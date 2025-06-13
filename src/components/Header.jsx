@@ -105,7 +105,7 @@ const Header = () => {
                     onClick={closeMenu}
                     className={`block px-4 py-3 text-white font-medium hover:text-yellow-400 hover:bg-white/5 rounded-lg transition-all duration-200 transform ${
                       isMenuOpen 
-                        ? 'translate-x-0 opacity-100' 
+                        ? 'translate-x-0 ' 
                         : 'translate-x-4 opacity-0'
                     }`}
                     style={{
@@ -143,7 +143,7 @@ const Header = () => {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+          className="lg:hidden fixed inset-0 bg-black/20 z-10"
           onClick={closeMenu}
         ></div>
       )}

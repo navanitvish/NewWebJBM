@@ -5,6 +5,7 @@ export const HeroSections = () => {
   return (
     <div className="bg-black w-full h-[500px] flex items-center py-8">
       <div className="flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-8 lg:gap-12">
+
         {/* Content Section */}
         <div className="flex-2 space-y-6 text-center lg:text-left">
           <h4 className="text-xl sm:text-2xl font-bold text-white">
