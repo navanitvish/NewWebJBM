@@ -28,7 +28,7 @@ export default function HowToWorks() {
     <div className="bg-gray-900 py-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-4xl font-bold text-center mb-16 text-orange-400">
+        <h2 className="text-4xl md:text-5xl  lg:text-6xl font-bold text-center mb-16 bg-[linear-gradient(90deg,_#D3912E_0%,_#AC5600_50%,_#EDB501_100%)] bg-clip-text text-transparent">
           How To Works
         </h2>
         

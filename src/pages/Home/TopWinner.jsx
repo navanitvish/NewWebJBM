@@ -63,7 +63,7 @@ export default function TopWinner() {
     <div className="bg-gray-900 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-8 md:mb-12 bg-[linear-gradient(90deg,_#D3912E_0%,_#AC5600_50%,_#EDB501_100%)] bg-clip-text text-transparent">
           Top Winner
         </h2>
 
@@ -72,7 +72,8 @@ export default function TopWinner() {
           {winners.map((winner) => (
             <div
               key={winner.id}
-              className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg p-3 md:p-4"
+              style={{ backgroundImage: "linear-gradient(180deg, #FFF8C3 0%, #D59C43 100%)" }}
+              className="rounded-lg p-3 md:p-4"
             >
               {/* Desktop Layout */}
               <div className="hidden lg:flex items-center justify-between">

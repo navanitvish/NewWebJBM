@@ -14,7 +14,7 @@ export default function GamePlayRates() {
   ];
 
   return (
-    <div className="bg-gray-900 py-16 px-4">
+    <div style={{ background: "linear-gradient(269.91deg, #262825 0.06%, #151B1B 99.91%)" }} className="bg-gray-900 py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -33,7 +33,7 @@ export default function GamePlayRates() {
           
           {/* Right Side - Game Rates */}
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-[linear-gradient(90deg,_#D3912E_0%,_#AC5600_50%,_#EDB501_100%)] bg-clip-text text-transparent">
               Game Play Rates
             </h2>
             
