@@ -52,10 +52,8 @@ const Header = () => {
             </div>
             <div>
               <h1 
-                className="text-lg md:text-2xl font-bold bg-clip-text text-transparent leading-tight"
-                style={{
-                  backgroundImage: "linear-gradient(90deg, #D59C43 0%, #F44041 100%)"
-                }}
+                className="text-lg md:text-2xl font-bold text-white"
+                
               >
                 JMB MATKA
               </h1>
