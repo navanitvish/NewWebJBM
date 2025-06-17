@@ -33,18 +33,13 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-black  flex items-center justify-center p-4">
+<div style={{ background: "linear-gradient(90deg, #040003 0%, #1A141B 100%)" }} className="bg-black  flex items-center justify-center p-4">
       <div className="w-full max-w-7xl  p-8 lg:p-12  border-gray-800 shadow-2xl">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center mb-4">
-            <MessageCircle className="w-8 h-8 text-red-500 mr-3" />
-            <h2 className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-500">
-              Get In Touch
-            </h2>
-          </div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Need to talk about anything? We're here to help you 24/7. Send us a message and we'll get back to you as soon as possible.
+          
+          <p className="text-gray-400 text-4xl font-medium max-w-2xl mx-auto">
+           Need to talk anything about?
           </p>
         </div>
 
@@ -52,7 +47,9 @@ export default function ContactForm() {
           {/* Form Section */}
           <div className="space-y-6">
             <div className="mb-6">
-              <h3 className="text-2xl font-semibold text-white mb-2">Send us a Message</h3>
+              <h3 className="text-2xl font-semibold text-white mb-2">
+                Send us a Message
+              </h3>
               <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-full"></div>
             </div>
 
@@ -107,8 +104,10 @@ export default function ContactForm() {
               </div>
 
               <button
+              style={{ 
+              fontFamily: "Anton, sans-serif" }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center justify-center gap-2"
+                className="w-72  text-2xl bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white  px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
                 Send Message
@@ -119,10 +118,13 @@ export default function ContactForm() {
           {/* Contact Info Section */}
           <div className="space-y-6">
             <div className="mb-6">
-              <h3 className="text-2xl font-semibold text-white mb-2">Contact Information</h3>
+              <h3 className="text-2xl font-semibold text-white mb-2">
+                Contact Information
+              </h3>
               <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-full"></div>
               <p className="text-gray-400 mt-4">
-                Reach out to us through any of the following methods. We're always ready to assist you.
+                Reach out to us through any of the following methods. We're
+                always ready to assist you.
               </p>
             </div>
 
@@ -133,7 +135,9 @@ export default function ContactForm() {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-white font-semibold mb-2 text-lg">Our Address</h4>
+                  <h4 className="text-white font-semibold mb-2 text-lg">
+                    Our Address
+                  </h4>
                   <p className="text-gray-400 leading-relaxed">
                     Gwalior, Madhya Pradesh, India
                   </p>
@@ -146,9 +150,14 @@ export default function ContactForm() {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-white font-semibold mb-2 text-lg">Our Contact Number</h4>
+                  <h4 className="text-white font-semibold mb-2 text-lg">
+                    Our Contact Number
+                  </h4>
                   <p className="text-gray-400 leading-relaxed">
-                    <a href="tel:+918969292140" className="hover:text-red-400 transition-colors duration-300">
+                    <a
+                      href="tel:+918969292140"
+                      className="hover:text-red-400 transition-colors duration-300"
+                    >
                       +91 8969292140
                     </a>
                   </p>
@@ -161,9 +170,14 @@ export default function ContactForm() {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-white font-semibold mb-2 text-lg">Our Mail Address</h4>
+                  <h4 className="text-white font-semibold mb-2 text-lg">
+                    Our Mail Address
+                  </h4>
                   <p className="text-gray-400 leading-relaxed">
-                    <a href="mailto:jintosh@gmail.com" className="hover:text-red-400 transition-colors duration-300">
+                    <a
+                      href="mailto:jintosh@gmail.com"
+                      className="hover:text-red-400 transition-colors duration-300"
+                    >
                       jintosh@gmail.com
                     </a>
                   </p>
@@ -171,29 +185,10 @@ export default function ContactForm() {
               </div>
             </div>
 
-            {/* Support Hours */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-lg border border-red-500/20">
-              <h4 className="text-white font-semibold mb-3 text-lg">Support Hours</h4>
-              <div className="space-y-2 text-gray-300">
-                <div className="flex justify-between">
-                  <span>Monday - Friday:</span>
-                  <span className="text-red-400">24/7 Available</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday - Sunday:</span>
-                  <span className="text-red-400">24/7 Available</span>
-                </div>
-              </div>
-            </div>
+           
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="text-center mt-12 pt-8 border-t border-gray-800">
-          <p className="text-gray-500 text-sm">
-            © 2024 JMB Matka Game - Your trusted gaming partner
-          </p>
-        </div>
       </div>
     </div>
   );

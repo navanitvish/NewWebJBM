@@ -1,2 +1,48 @@
-
 @import "tailwindcss";
+
+
+.borders {
+    border: 2px solid rgba(255, 255, 255, 1);
+    filter: blur(2px);
+
+}
+
+h2 {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 100%;
+    letter-spacing:0%;
+
+    font-style: normal;
+    background: linear-gradient(90deg, #FF8D00 0%, #FF2566 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.headers{
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-size: 65px;
+    line-height: 100%;
+    letter-spacing:0%;
+}
+
+.headerpara{
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    
+    letter-spacing:0%;
+}
+
+/* p{
+    font-family: Nunito, sans-serif;
+font-weight: 400;
+font-size: 1rem;
+line-height: 100%;
+letter-spacing: 0%;
+
+} */
