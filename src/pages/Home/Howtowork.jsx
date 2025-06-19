@@ -39,7 +39,7 @@ export default function HowToWorks() {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="text-center group">
               {/* Icon Circle */}
@@ -48,7 +48,7 @@ export default function HowToWorks() {
                   background:
                     "linear-gradient(180deg, #F44041 0%, #A40909 100%)",
                 }}
-                className="w-42 h-42 border-2 border-amber-50   rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-red-700  duration-300 shadow-lg"
+                className="w-32 h-32  lg:w-42 lg:h-42 border-2 border-amber-50   rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-red-700  duration-300 shadow-lg"
               >
                 <step.icon className="w-14 h-14  text-white" strokeWidth={2} />
               </div>

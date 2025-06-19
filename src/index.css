@@ -46,3 +46,25 @@ line-height: 100%;
 letter-spacing: 0%;
 
 } */
+
+/* mobile respsive */
+
+@media screen and (max-width: 600px) {
+    .headers{
+        font-size: 40px;
+    }
+    .headerpara{
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+
+    h2{
+        font-size: 2rem;
+    }
+   
+  
+}
+
