@@ -9,58 +9,51 @@ export default function OurOpenGames() {
     {
       id: 1,
       name: "Delhi Bazar",
-      status: "Open",
-      time: "10:30 AM",
+      status: "Opening",
+      time: "1.40 PM",
       players: "2.5K",
     },
     {
       id: 2,
-      name: "Mumbai Bazar",
-      status: "Open",
-      time: "11:00 AM",
+      name: "Shree Ganesh",
+      status: "Opening",
+      time: "03:20 PM",
       players: "3.2K",
     },
     {
       id: 3,
-      name: "Kolkata Bazar",
-      status: "Open",
-      time: "11:30 AM",
+      name: "Faridabad",
+      status: "Opening",
+      time: "04:40 PM",
       players: "1.8K",
     },
     {
       id: 4,
-      name: "Chennai Bazar",
-      status: "Open",
-      time: "12:00 PM",
+      name: "Mahagauri",
+      status: "Opening",
+      time: "06:30 PM",
       players: "2.1K",
     },
     {
       id: 5,
-      name: "Pune Bazar",
-      status: "Open",
-      time: "12:30 PM",
+      name: "Gaziabad",
+      status: "Opening",
+      time: "07:00 PM",
       players: "1.9K",
     },
     {
       id: 6,
-      name: "Jaipur Bazar",
-      status: "Open",
-      time: "01:00 PM",
+      name: "Gali",
+      status: "Opening",
+      time: "09:30 PM",
       players: "1.5K",
     },
     {
       id: 7,
-      name: "Hyderabad Bazar",
+      name: "Deshawer",
       status: "Open",
-      time: "01:30 PM",
+      time: "12:30 AM",
       players: "2.3K",
-    },
-    {
-      id: 8,
-      name: "Bangalore Bazar",
-      status: "Open",
-      time: "02:00 PM",
-      players: "2.7K",
     },
   ];
 
@@ -135,10 +128,10 @@ export default function OurOpenGames() {
                       <h3 className="text-white font-bold text-xl md:text-2xl mb-2 drop-shadow-lg">
                         {game.name}
                       </h3>
-                      {/* <div className="text-white/90 text-sm space-y-1">
+                      <div className="text-white/90 text-sm space-y-1">
                         <p className="font-semibold">{game.time}</p>
-                        <p className="text-xs">{game.players} Players</p>
-                      </div> */}
+                        {/* <p className="text-xs">{game.players} Players</p> */}
+                      </div>
                     </div>
 
                     {/* Border Glow Effect */}

@@ -7,60 +7,61 @@ import TopWinnerimage1 from '../../assets/topwinner (4).png';
 
 export default function TopWinner() {
   const winners = [
-    {
-      id: 1,
-      name: "Rohit Sharma",
-      location: "Winner, Jharkhand",
-      game: "Delhi bazar",
-      gameType: "Jackpot",
-      betAmount: "₹ 30000",
-      winAmount: "₹ 50000"
-    },
-    {
-      id: 2,
-      name: "Rohit Sharma",
-      location: "Winner, Jharkhand",
-      game: "Delhi bazar",
-      gameType: "Jackpot",
-      betAmount: "₹ 30000",
-      winAmount: "₹ 50000"
-    },
-    {
-      id: 3,
-      name: "Rohit Sharma",
-      location: "Winner, Jharkhand",
-      game: "Delhi bazar",
-      gameType: "Jackpot",
-      betAmount: "₹ 30000",
-      winAmount: "₹ 50000"
-    },
-    {
-      id: 4,
-      name: "Rohit Sharma",
-      location: "Winner, Jharkhand",
-      game: "Delhi bazar",
-      gameType: "Jackpot",
-      betAmount: "₹ 30000",
-      winAmount: "₹ 50000"
-    },
-    {
-      id: 5,
-      name: "Rohit Sharma",
-      location: "Winner, Jharkhand",
-      game: "Delhi bazar",
-      gameType: "Jackpot",
-      betAmount: "₹ 30000",
-      winAmount: "₹ 50000"
-    },
-    {
-      id: 6,
-      name: "Rohit Sharma",
-      location: "Winner, Jharkhand",
-      game: "Delhi bazar",
-      gameType: "Jackpot",
-      betAmount: "₹ 30000",
-      winAmount: "₹ 50000"
-    }
+   {
+    id: 1,
+    name: "Rohit Sharma",
+    location: "Winner, Jharkhand",
+    game: "Delhi bazar",
+    gameType: "Jackpot",
+    betAmount: "₹ 30000",
+    winAmount: "₹ 50000"
+  },
+  {
+    id: 2,
+    name: "Amit Verma",
+    location: "Winner, Bihar",
+    game: "Shree Ganesh",
+    gameType: "Jackpot",
+    betAmount: "₹ 30000",
+    winAmount: "₹ 50000"
+  },
+  {
+    id: 3,
+    name: "Suresh Kumar",
+    location: "Winner, Uttar Pradesh",
+    game: "Delhi bazar",
+    gameType: "Jackpot",
+    betAmount: "₹ 30000",
+    winAmount: "₹ 50000"
+  },
+  {
+    id: 4,
+    name: "Vikas Singh",
+    location: "Winner, Rajasthan",
+    game: "Faridabad",
+    gameType: "Jackpot",
+    betAmount: "₹ 30000",
+    winAmount: "₹ 50000"
+  },
+  {
+    id: 5,
+    name: "Anil Yadav",
+    location: "Winner, Punjab",
+    game: "Gaziabad",
+    gameType: "Jackpot",
+    betAmount: "₹ 30000",
+    winAmount: "₹ 50000"
+  },
+  {
+    id: 6,
+    name: "Deepak Joshi",
+    location: "Winner, Maharashtra",
+    game: "Gaziabad",
+    gameType: "Jackpot",
+    betAmount: "₹ 30000",
+    winAmount: "₹ 50000"
+  }
+
   ];
 
   const images = [TopWinnerimage1, TopWinnerimage2, TopWinnerimage3, TopWinnerimage4];
