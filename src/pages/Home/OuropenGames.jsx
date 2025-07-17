@@ -1,35 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Trophy, Loader2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Trophy } from "lucide-react";
 
 export default function OurOpenGames() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [games, setGames] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   // Fetch games data from API
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        setLoading(true);
-        const response = await fetch('https://jmb-matka.onrender.com/v1/api/game/pagination?page=1&limit=10');
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
+        const response = await fetch(
+          "https://jmb-matka.onrender.com/v1/api/game/pagination?page=1&limit=10"
+        );
         const data = await response.json();
-        console.log('API Response:', data); // For debugging
-        
+
         // Extract games array from the response
         const gamesArray = data.result || data.games || data || [];
         setGames(gamesArray);
-        setError(null);
       } catch (err) {
-        console.error('Error fetching games:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
+        console.error("Error fetching games:", err);
+        // Keep empty array on error
+        setGames([]);
       }
     };
 
@@ -62,104 +53,38 @@ export default function OurOpenGames() {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
-  // Format time if needed (adjust based on your API response format)
-  const formatTime = (time) => {
-    if (!time) return 'N/A';
-    // If time is already formatted, return as is
-    if (typeof time === 'string') return time;
-    // Add your time formatting logic here if needed
-    return time;
-  };
-
   // Get game name (adjust field name based on your API response)
   const getGameName = (game) => {
-    return game.name || game.gameName || game.title || 'Unknown Game';
-  };
-
-  // Get game status (adjust field name based on your API response)
-  const getGameStatus = (game) => {
-    return game.status || game.gameStatus || 'Opening';
+    return game.name || game.gameName || game.title || "Unknown Game";
   };
 
   // Get game time (adjust field name based on your API response)
   const getGameTime = (game) => {
-    return formatTime(game.time || game.gameTime || game.openTime || 'N/A');
+    return game.time || game.gameTime || game.openTime || "N/A";
   };
 
   // Get players count (adjust field name based on your API response)
   const getPlayersCount = (game) => {
-    return game.players || game.playersCount || game.totalPlayers || '0';
+    return game.players || game.playersCount || game.totalPlayers || "0";
   };
 
-  if (loading) {
-    return (
-      <div style={{ background: "linear-gradient(180deg, #000000 0%, #2D3436 100%)" }} className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl text-white">
-              OUR OPEN GAMES
-            </h2>
-            <div className="borders w-68 mt-1 mx-auto rounded-full shadow-2xl drop-shadow-lg opacity-30"></div>
-          </div>
-          <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-12 h-12 text-yellow-400 animate-spin" />
-            <span className="ml-3 text-white text-lg">Loading games...</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div style={{ background: "linear-gradient(180deg, #000000 0%, #2D3436 100%)" }} className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl text-white">
-              OUR OPEN GAMES
-            </h2>
-            <div className="borders w-68 mt-1 mx-auto rounded-full shadow-2xl drop-shadow-lg opacity-30"></div>
-          </div>
-          <div className="flex justify-center items-center py-20">
-            <div className="text-center">
-              <div className="text-red-400 text-lg mb-2">Error loading games</div>
-              <div className="text-white text-sm">{error}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (games.length === 0) {
-    return (
-      <div style={{ background: "linear-gradient(180deg, #000000 0%, #2D3436 100%)" }} className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl text-white">
-              OUR OPEN GAMES
-            </h2>
-            <div className="borders w-68 mt-1 mx-auto rounded-full shadow-2xl drop-shadow-lg opacity-30"></div>
-          </div>
-          <div className="flex justify-center items-center py-20">
-            <div className="text-center">
-              <div className="text-white text-lg">No games available</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // Get game status (adjust field name based on your API response)
+  const getGameStatus = (game) => {
+    return game.status || game.gameStatus || "Opening";
+  };
 
   return (
-    <div style={{ background: "linear-gradient(180deg, #000000 0%, #2D3436 100%)" }} className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-16 px-4">
+    <div
+      style={{
+        background: "linear-gradient(180deg, #000000 0%, #2D3436 100%)",
+      }}
+      className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-16 px-4"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl text-white">
-            OUR OPEN GAMES
-          </h2>
-          <div className="borders w-68 mt-1 mx-auto rounded-full shadow-2xl drop-shadow-lg opacity-30"></div>
+          <h2 className="text-4xl md:text-5xl ">OUR OPEN GAMES</h2>
+          <div className="borders w-68 mt-1   mx-auto rounded-full shadow-2xl drop-shadow-lg opacity-30"></div>
         </div>
 
         {/* Desktop/Tablet Carousel */}
@@ -191,13 +116,18 @@ export default function OurOpenGames() {
 
                     {/* Content */}
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
-                      <Trophy className="w-8 h-8 text-white mb-3 drop-shadow-lg" />
+                      <div
+                        className={`w-4 h-4 rounded-full ring-2 ring-green-200 animate-pulse -mt-6  ${
+                          game.isActive ? "bg-green-500" : "bg-red-500"
+                        }`}
+                      />
+                      <Trophy className="w-8 h-8 text-white mb-3 drop-shadow-lg mt-4" />
                       <h3 className="text-white font-bold text-xl md:text-2xl mb-2 drop-shadow-lg">
                         {getGameName(game)}
                       </h3>
                       <div className="text-white/90 text-sm space-y-1">
                         <p className="font-semibold">{getGameTime(game)}</p>
-                        <p className="text-xs">{getPlayersCount(game)} Players</p>
+                        {/* <p className="text-xs">{getPlayersCount(game)} Players</p> */}
                       </div>
                     </div>
                   </div>

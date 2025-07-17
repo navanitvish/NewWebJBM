@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 .borders {
     border: 2px solid rgba(255, 255, 255, 1);
     filter: blur(2px);

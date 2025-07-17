@@ -7,16 +7,26 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // navLinks
+  // Updated navLinks to match your Home component section IDs
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Jackpot", href: "/jackpot" },
-    { name: "Result", href: "/result" },
-    { name: "Time Table", href: "/timetable" },
-    { name: "Guide", href: "/guide" },
-    { name: "Help", href: "/help" },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#promo" },
+    { name: "Guide", href: "#how" },
+    { name: "Jackpot", href: "#rate" },
+    { name: "Games", href: "#games" },
+    { name: "Result", href: "#winners" },
+    { name: "Time Table", href: "#timetable" },
+    { name: "Help", href: "#contact" },
   ];
+  // const navLinks = [
+  //   { name: "Home", href: "/" },
+    // { name: "About", href: "/about" },
+    // { name: "Jackpot", href: "/jackpot" },
+    // { name: "Result", href: "/result" },
+    // { name: "Time Table", href: "/timetable" },
+    // { name: "Guide", href: "/guide" },
+    // { name: "Help", href: "/help" },
+  // ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,6 +34,21 @@ const Header = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  // Smooth scroll function
+  const handleSmoothScroll = (e, href) => {
+    e.preventDefault();
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    closeMenu(); // Close mobile menu after clicking
   };
 
   return (
@@ -68,14 +93,15 @@ const Header = () => {
             <ul className="flex space-x-6 xl:space-x-8">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-white uppercase  text-sm xl:text-2xl hover:text-yellow-400 transition-all duration-300 relative group px-2 py-1"
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleSmoothScroll(e, link.href)}
+                    className="text-white uppercase text-sm xl:text-2xl hover:text-yellow-400 transition-all duration-300 relative group px-2 py-1 cursor-pointer"
                     style={{ fontFamily: '"Anton", sans-serif', fontWeight: '400' }}
                   >
                     {link.name}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-red-500 transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -124,8 +150,8 @@ const Header = () => {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      onClick={closeMenu}
-                      className={`block px-4 py-3 text-white font-medium hover:text-yellow-400 hover:bg-white/10 rounded-lg transition-all duration-200 transform ${
+                      onClick={(e) => handleSmoothScroll(e, link.href)}
+                      className={`block px-4 py-3 text-white font-medium hover:text-yellow-400 hover:bg-white/10 rounded-lg transition-all duration-200 transform cursor-pointer ${
                         isMenuOpen 
                           ? 'translate-x-0 opacity-100' 
                           : 'translate-x-4 opacity-0'
@@ -160,7 +186,8 @@ const Header = () => {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-white font-medium text-sm hover:text-yellow-400 transition-all duration-200 relative group px-3 py-2 rounded-md hover:bg-white/5"
+                      onClick={(e) => handleSmoothScroll(e, link.href)}
+                      className="text-white font-medium text-sm hover:text-yellow-400 transition-all duration-200 relative group px-3 py-2 rounded-md hover:bg-white/5 cursor-pointer"
                       style={{ fontFamily: 'Arial, sans-serif', fontWeight: '600' }}
                     >
                       {link.name}
