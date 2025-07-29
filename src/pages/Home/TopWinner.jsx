@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 
 import TopWinnerimage2 from '../../assets/topwinner (1).png';
 import TopWinnerimage3 from '../../assets/topwinner (2).png';
@@ -6,63 +6,84 @@ import TopWinnerimage4 from '../../assets/topwinner (3).png';
 import TopWinnerimage1 from '../../assets/topwinner (4).png';
 
 export default function TopWinner() {
-  const winners = [
-   {
-    id: 1,
-    name: "Rohit Sharma",
-    location: "Winner, Jharkhand",
-    game: "Delhi bazar",
-    gameType: "Jackpot",
-    betAmount: "₹ 30000",
-    winAmount: "₹ 50000"
-  },
-  {
-    id: 2,
-    name: "Amit Verma",
-    location: "Winner, Bihar",
-    game: "Shree Ganesh",
-    gameType: "Jackpot",
-    betAmount: "₹ 30000",
-    winAmount: "₹ 50000"
-  },
-  {
-    id: 3,
-    name: "Suresh Kumar",
-    location: "Winner, Uttar Pradesh",
-    game: "Delhi bazar",
-    gameType: "Jackpot",
-    betAmount: "₹ 30000",
-    winAmount: "₹ 50000"
-  },
-  {
-    id: 4,
-    name: "Vikas Singh",
-    location: "Winner, Rajasthan",
-    game: "Faridabad",
-    gameType: "Jackpot",
-    betAmount: "₹ 30000",
-    winAmount: "₹ 50000"
-  },
-  {
-    id: 5,
-    name: "Anil Yadav",
-    location: "Winner, Punjab",
-    game: "Gaziabad",
-    gameType: "Jackpot",
-    betAmount: "₹ 30000",
-    winAmount: "₹ 50000"
-  },
-  {
-    id: 6,
-    name: "Deepak Joshi",
-    location: "Winner, Maharashtra",
-    game: "Gaziabad",
-    gameType: "Jackpot",
-    betAmount: "₹ 30000",
-    winAmount: "₹ 50000"
-  }
+  const [winners, setWinners] = useState([]);
+  // const winners = [
+  //  {
+  //   id: 1,
+  //   name: "Rohit Sharma",
+  //   location: "Winner, Jharkhand",
+  //   game: "Delhi bazar",
+  //   gameType: "Jackpot",
+  //   betAmount: "₹ 30000",
+  //   winAmount: "₹ 50000"
+  // },
+  // {
+  //   id: 2,
+  //   name: "Amit Verma",
+  //   location: "Winner, Bihar",
+  //   game: "Shree Ganesh",
+  //   gameType: "Jackpot",
+  //   betAmount: "₹ 30000",
+  //   winAmount: "₹ 50000"
+  // },
+  // {
+  //   id: 3,
+  //   name: "Suresh Kumar",
+  //   location: "Winner, Uttar Pradesh",
+  //   game: "Delhi bazar",
+  //   gameType: "Jackpot",
+  //   betAmount: "₹ 30000",
+  //   winAmount: "₹ 50000"
+  // },
+  // {
+  //   id: 4,
+  //   name: "Vikas Singh",
+  //   location: "Winner, Rajasthan",
+  //   game: "Faridabad",
+  //   gameType: "Jackpot",
+  //   betAmount: "₹ 30000",
+  //   winAmount: "₹ 50000"
+  // },
+  // {
+  //   id: 5,
+  //   name: "Anil Yadav",
+  //   location: "Winner, Punjab",
+  //   game: "Gaziabad",
+  //   gameType: "Jackpot",
+  //   betAmount: "₹ 30000",
+  //   winAmount: "₹ 50000"
+  // },
+  // {
+  //   id: 6,
+  //   name: "Deepak Joshi",
+  //   location: "Winner, Maharashtra",
+  //   game: "Gaziabad",
+  //   gameType: "Jackpot",
+  //   betAmount: "₹ 30000",
+  //   winAmount: "₹ 50000"
+  // }
 
-  ];
+  // ];
+  useEffect(() => {
+      const fetchGames = async () => {
+        try {
+          const response = await fetch(
+            "https://jmb-matka.onrender.com/v1/api/gameHistory/topWinner"
+          );
+          const data = await response.json();
+  
+          // Extract games array from the response
+          const gamesArray = data.result || data.games || data || [];
+          setWinners(gamesArray);
+        } catch (err) {
+          console.error("Error fetching games:", err);
+          // Keep empty array on error
+          setWinners([]);
+        }
+      };
+  
+      fetchGames();
+    }, []);
 
   const images = [TopWinnerimage1, TopWinnerimage2, TopWinnerimage3, TopWinnerimage4];
 
@@ -94,7 +115,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0">
                     <h3 className="font-bold text-black text-lg leading-tight truncate">{winner.name}</h3>
-                    <p className="text-black text-sm leading-tight truncate">{winner.location}</p>
+                    <p className="text-black text-sm leading-tight truncate">{winner.address}</p>
                   </div>
                 </div>
 
@@ -106,7 +127,7 @@ export default function TopWinner() {
                     className="w-12 h-12 object-cover flex-shrink-0"
                   />
                   <div className="min-w-0">
-                    <h4 className="font-bold text-black text-lg leading-tight truncate">{winner.game}</h4>
+                    <h4 className="font-bold text-black text-lg leading-tight truncate">{winner.latestGame}</h4>
                     <p className="text-black text-sm leading-tight truncate">{winner.gameType}</p>
                   </div>
                 </div>
@@ -120,7 +141,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0">
                     <h4 className="font-bold text-black text-lg leading-tight">Bet Amount</h4>
-                    <p className="text-black text-sm leading-tight">{winner.betAmount}</p>
+                    <p className="text-black text-sm leading-tight">{winner.latestBidAmount}</p>
                   </div>
                 </div>
 
@@ -133,7 +154,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0">
                     <h4 className="font-bold text-black text-lg leading-tight">Winner Man</h4>
-                    <p className="text-black text-sm leading-tight">{winner.winAmount}</p>
+                    <p className="text-black text-sm leading-tight">{winner.latestWinAmount}</p>
                   </div>
                 </div>
               </div>
@@ -149,7 +170,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0 flex-1">
                     <h3 className="font-bold text-black text-base leading-tight truncate">{winner.name}</h3>
-                    <p className="text-black text-sm leading-tight truncate">{winner.location}</p>
+                    <p className="text-black text-sm leading-tight truncate">{winner.address}</p>
                   </div>
                 </div>
 
@@ -161,8 +182,8 @@ export default function TopWinner() {
                     className="w-11 h-11 object-cover flex-shrink-0"
                   />
                   <div className="min-w-0 flex-1">
-                    <h4 className="font-bold text-black text-base leading-tight truncate">{winner.game}</h4>
-                    <p className="text-black text-sm leading-tight truncate">{winner.gameType}</p>
+                    <h4 className="font-bold text-black text-base leading-tight truncate">{winner.latestGame}</h4>
+                    <p className="text-black text-sm leading-tight truncate">{winner.gameType || "Delhi Bazar"}</p>
                   </div>
                 </div>
 
@@ -175,7 +196,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0 flex-1">
                     <h4 className="font-bold text-black text-base leading-tight">Bet Amount</h4>
-                    <p className="text-black text-sm leading-tight">{winner.betAmount}</p>
+                    <p className="text-black text-sm leading-tight">{winner.latestBidAmount}</p>
                   </div>
                 </div>
 
@@ -188,7 +209,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0 flex-1">
                     <h4 className="font-bold text-black text-base leading-tight">Winner Man</h4>
-                    <p className="text-black text-sm leading-tight">{winner.winAmount}</p>
+                    <p className="text-black text-sm leading-tight">{winner.latestWinAmount}</p>
                   </div>
                 </div>
               </div>
@@ -204,7 +225,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0 flex-1">
                     <h3 className="font-bold text-black text-sm leading-tight truncate">{winner.name}</h3>
-                    <p className="text-black text-xs leading-tight truncate">{winner.location}</p>
+                    <p className="text-black text-xs leading-tight truncate">{winner.address}</p>
                   </div>
                 </div>
 
@@ -216,7 +237,7 @@ export default function TopWinner() {
                     className="w-9 h-9 object-cover flex-shrink-0"
                   />
                   <div className="min-w-0 flex-1">
-                    <h4 className="font-bold text-black text-sm leading-tight truncate">{winner.game}</h4>
+                    <h4 className="font-bold text-black text-sm leading-tight truncate">{winner.latestGame}</h4>
                     <p className="text-black text-xs leading-tight truncate">{winner.gameType}</p>
                   </div>
                 </div>
@@ -230,7 +251,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0 flex-1">
                     <h4 className="font-bold text-black text-sm leading-tight">Bet</h4>
-                    <p className="text-black text-xs leading-tight">{winner.betAmount}</p>
+                    <p className="text-black text-xs leading-tight">{winner.latestBidAmount}</p>
                   </div>
                 </div>
 
@@ -243,7 +264,7 @@ export default function TopWinner() {
                   />
                   <div className="min-w-0 flex-1">
                     <h4 className="font-bold text-black text-sm leading-tight">Win</h4>
-                    <p className="text-black text-xs leading-tight">{winner.winAmount}</p>
+                    <p className="text-black text-xs leading-tight">{winner.latestWinAmount}</p>
                   </div>
                 </div>
               </div>
@@ -261,7 +282,7 @@ export default function TopWinner() {
                     />
                     <div className="min-w-0 flex-1">
                       <h3 className="font-bold text-black text-sm sm:text-base leading-tight truncate">{winner.name}</h3>
-                      <p className="text-black text-xs leading-tight truncate">{winner.location}</p>
+                      <p className="text-black text-xs leading-tight truncate">{winner.address}</p>
                     </div>
                   </div>
 
@@ -273,8 +294,8 @@ export default function TopWinner() {
                       className="w-10 h-10 sm:w-11 sm:h-11 object-cover flex-shrink-0 rounded-full"
                     />
                     <div className="min-w-0 flex-1">
-                      <h4 className="font-bold text-black text-sm sm:text-base leading-tight truncate">{winner.game}</h4>
-                      <p className="text-black text-xs leading-tight truncate">{winner.gameType}</p>
+                      <h4 className="font-bold text-black text-sm sm:text-base leading-tight truncate">{winner.latestGame}</h4>
+                      <p className="text-black text-xs leading-tight truncate">{winner.gameType || "Delhi"}</p>
                     </div>
                   </div>
                 </div>
@@ -289,7 +310,7 @@ export default function TopWinner() {
                     />
                     <div className="min-w-0">
                       <h4 className="font-bold text-black text-xs sm:text-sm leading-tight">Bet Amount</h4>
-                      <p className="text-black text-xs sm:text-sm font-semibold leading-tight">{winner.betAmount}</p>
+                      <p className="text-black text-xs sm:text-sm font-semibold leading-tight">{winner.latestBidAmount}</p>
                     </div>
                   </div>
                   
@@ -303,7 +324,7 @@ export default function TopWinner() {
                     />
                     <div className="min-w-0">
                       <h4 className="font-bold text-black text-xs sm:text-sm leading-tight">Won Amount</h4>
-                      <p className="text-green-700 text-xs sm:text-sm font-bold leading-tight">{winner.winAmount}</p>
+                      <p className="text-green-700 text-xs sm:text-sm font-bold leading-tight">{winner.latestWinAmount}</p>
                     </div>
                   </div>
                 </div>
